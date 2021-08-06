@@ -6,4 +6,10 @@ async function selectSchedules() {
   return rows;
 }
 
-module.exports = { selectSchedules };
+async function selectSchedulesById(id) {
+  const conn = await connect();
+  const [rows] = await conn.query('SELECT * FROM scheduling WHERE id=?;', id);
+  return rows;
+}
+
+module.exports = { selectSchedules, selectSchedulesById };
