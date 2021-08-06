@@ -12,5 +12,9 @@ module.exports = (app) => {
   app.post("/schedules", async (req, res, next) => {
     return schedulesService.postSchedules(req, res);
   });
+
+  app.delete("/schedules/:id", async (req, res, next) => {
+    return schedulesService.deleteSchedules(req, res)
+  });
 };
 

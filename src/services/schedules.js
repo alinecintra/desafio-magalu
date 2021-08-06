@@ -44,4 +44,22 @@ async function postSchedules(req, res) {
   }
 }
 
-module.exports = { getAllSchedules, getSchedulesById, postSchedules };
+async function deleteSchedules(req, res) {
+  try {
+    const schedules = await schedulesDb.deleteSchedules(req.params.id);
+    if (schedules.affectedRows === 0) {
+      errorMessage.message =
+        "Não existe nenhum agendamento de envio de comunicação com o id informado.";
+      return res.status(404).send(errorMessage);
+    }
+    return res.send({
+      message: "Agendamento de envio de comunicação excluído com sucesso.",
+    });
+  } catch (error) {
+    errorMessage.message =
+      "Não foi possível realizar a exclusão do agendamento do envio da comunicação";
+    return res.status(500).send(errorMessage);
+  }
+}
+
+module.exports = { getAllSchedules, getSchedulesById, postSchedules, deleteSchedules };
