@@ -8,5 +8,9 @@ module.exports = (app) => {
   app.get("/schedules/:id", async (req, res, next) => {
     return schedulesService.getSchedulesById(req, res);
   });
+
+  app.post("/schedules", async (req, res, next) => {
+    return schedulesService.postSchedules(req, res);
+  });
 };
 

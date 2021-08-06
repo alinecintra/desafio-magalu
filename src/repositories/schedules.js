@@ -12,4 +12,10 @@ async function selectSchedulesById(id) {
   return rows;
 }
 
-module.exports = { selectSchedules, selectSchedulesById };
+async function insertSchedules(scheduling) {
+  const conn = await connect();
+  const [rows] = await conn.query('INSERT INTO scheduling(send_date, receiver, message, message_type) VALUES (?, ?, ?, ?)', [scheduling.send_date, scheduling.receiver, scheduling.message, scheduling.message_type]);
+  return rows;
+}
+
+module.exports = { selectSchedules, selectSchedulesById, insertSchedules };

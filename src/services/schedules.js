@@ -33,4 +33,15 @@ async function getSchedulesById(req, res) {
   }
 }
 
-module.exports = { getAllSchedules, getSchedulesById };
+async function postSchedules(req, res) {
+  try {
+    const schedules = await schedulesDb.insertSchedules(req.body);
+    return res.send(schedules);
+  } catch (error) {
+    errorMessage.message =
+      "Não foi possível realizar o agendamento do envio da comunicação";
+    return res.status(500).send(errorMessage);
+  }
+}
+
+module.exports = { getAllSchedules, getSchedulesById, postSchedules };
