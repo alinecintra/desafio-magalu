@@ -9,6 +9,8 @@ app.use(
     ":method | :status | HTTP :http-version | Resposta: :response-time ms | Data: :date[web] | URL: :url"
   )
 );
+app.use(require("./middlewares/cors"));
+app.use(require("./middlewares/session"));
 app.use(express.json());
 
 expressLoad("./src/controllers").into(app);
