@@ -38,7 +38,7 @@ CREATE TABLE `scheduling` (
 
 LOCK TABLES `scheduling` WRITE;
 /*!40000 ALTER TABLE `scheduling` DISABLE KEYS */;
-INSERT INTO `scheduling` VALUES (7,'2021-09-01 10:00:00','Maria da Silva','Domingo Ouro!',NULL);
+INSERT INTO `scheduling` VALUES ('2021-09-01 10:00:00','Maria da Silva','Cupom de 100 ou 200?','PUSH');
 /*!40000 ALTER TABLE `scheduling` ENABLE KEYS */;
 UNLOCK TABLES;
 

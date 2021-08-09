@@ -17,6 +17,15 @@ Após clonar o repositório, utilize o comando via terminal
 Utilizando o comando `yarn dev` a aplicação rodará no seguinte endereço:
 `http://localhost:4500/`
 
+** Observação: caso queira importar via postman os métodos disponíveis são:  
+
+curl --location --request GET 'http://localhost:4500/schedules'  
+curl --location --request GET 'http://localhost:4500/schedules/1'  
+curl --location --request POST 'http://localhost:4500/schedules'  
+curl --location --request DELETE 'http://localhost:4500/schedules/1'
+
+
+
 ## Autenticação JWT
 No header do postman utilizar:
 
