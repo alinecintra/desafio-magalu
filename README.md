@@ -19,10 +19,32 @@ Utilizando o comando `yarn dev` a aplicação rodará no seguinte endereço:
 
 ** Observação: caso queira importar via postman os métodos disponíveis são:  
 
-curl --location --request GET 'http://localhost:4500/schedules'  
-curl --location --request GET 'http://localhost:4500/schedules/1'  
-curl --location --request POST 'http://localhost:4500/schedules'  
-curl --location --request DELETE 'http://localhost:4500/schedules/1'
+```sh
+curl --location --request GET 'http://localhost:4500/schedules' \
+--header 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U'  
+```
+
+``` sh
+curl --location --request GET 'http://localhost:4500/schedules/1' \ 
+--header 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U'  
+```
+
+``` sh
+curl --location --request POST 'http://localhost:4500/schedules' \
+--header 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "send_date": "2021-06-06 10:30:00",
+    "receiver": "Maria José",
+    "message": "Frete grátis para você!",
+    "message_type": "WHATSAPP"
+}'
+```
+
+```sh
+curl --location --request DELETE 'http://localhost:4500/schedules/6' \
+--header 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.Ir22pFtxtJf_a3uZGhAKDTCosLv4nRdOoVHZhx-zZ5U'
+```
 
 
 
